@@ -12,51 +12,48 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 
 // Lanterna API documentation: https://mabe02.github.io/lanterna/apidocs/3.0/
-//
-// CSI escape sequences:
-//
 
 
 public class my {
 
 
-    // CSI-style escape sequences.
-    public class FG {
-	public static final String Black = "\u001b[0;30m";
-	public static final String Red = "\u001b[0;31m";
-	public static final String Green = "\u001b[0;32m";
-	public static final String Orange = "\u001b[0;33m";
-	public static final String Blue = "\u001b[0;34m";
-	public static final String Magenta = "\u001b[0;35m";
-	public static final String Cyan = "\u001b[0;36m";
-	public static final String White = "\u001b[0;37m";
-	public static final String Gray = "\u001b[1;30m";
-	public static final String BrightRed = "\u001b[1;31m";
-	public static final String BrightGreen = "\u001b[1;32m";
-	public static final String Yellow = "\u001b[1;33m";
-	public static final String BrightBlue = "\u001b[1;34m";
-	public static final String BrightMagenta = "\u001b[1;35m";
-	public static final String BrightCyan = "\u001b[1;36m";
-	public static final String BrightWhite = "\u001b[1;37m";
-    }
-    public class BG {
-	public static final String Black = "\u001b[0;40m";
-	public static final String Red = "\u001b[0;41m";
-	public static final String Green = "\u001b[0;42m";
-	public static final String Orange = "\u001b[0;43m";
-	public static final String Blue = "\u001b[0;44m";
-	public static final String Magenta = "\u001b[0;45m";
-	public static final String Cyan = "\u001b[0;46m";
-	public static final String White = "\u001b[0;47m";
-	public static final String Gray = "\u001b[1;40m";
-	public static final String BrightRed = "\u001b[1;41m";
-	public static final String BrightGreen = "\u001b[1;42m";
-	public static final String Yellow = "\u001b[1;43m";
-	public static final String BrightBlue = "\u001b[1;44m";
-	public static final String BrightMagenta = "\u001b[1;45m";
-	public static final String BrightCyan = "\u001b[1;46m";
-	public static final String BrightWhite = "\u001b[1;47m";
-    }
+	// CSI-style escape sequences.
+	public class FG {
+			public static final String Black = "\u001b[0;30m";
+			public static final String Red = "\u001b[0;31m";
+			public static final String Green = "\u001b[0;32m";
+			public static final String Orange = "\u001b[0;33m";
+			public static final String Blue = "\u001b[0;34m";
+			public static final String Magenta = "\u001b[0;35m";
+			public static final String Cyan = "\u001b[0;36m";
+			public static final String White = "\u001b[0;37m";
+			public static final String Gray = "\u001b[1;30m";
+			public static final String BrightRed = "\u001b[1;31m";
+			public static final String BrightGreen = "\u001b[1;32m";
+			public static final String Yellow = "\u001b[1;33m";
+			public static final String BrightBlue = "\u001b[1;34m";
+			public static final String BrightMagenta = "\u001b[1;35m";
+			public static final String BrightCyan = "\u001b[1;36m";
+			public static final String BrightWhite = "\u001b[1;37m";
+	}
+	public class BG {
+			public static final String Black = "\u001b[0;40m";
+			public static final String Red = "\u001b[0;41m";
+			public static final String Green = "\u001b[0;42m";
+			public static final String Orange = "\u001b[0;43m";
+			public static final String Blue = "\u001b[0;44m";
+			public static final String Magenta = "\u001b[0;45m";
+			public static final String Cyan = "\u001b[0;46m";
+			public static final String White = "\u001b[0;47m";
+			public static final String Gray = "\u001b[1;40m";
+			public static final String BrightRed = "\u001b[1;41m";
+			public static final String BrightGreen = "\u001b[1;42m";
+			public static final String Yellow = "\u001b[1;43m";
+			public static final String BrightBlue = "\u001b[1;44m";
+			public static final String BrightMagenta = "\u001b[1;45m";
+			public static final String BrightCyan = "\u001b[1;46m";
+			public static final String BrightWhite = "\u001b[1;47m";
+	}
 
 	/**
 	 * Waits for the user to press any key.
