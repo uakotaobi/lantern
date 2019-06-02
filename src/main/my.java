@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
@@ -31,13 +30,20 @@ public class my {
 
 	/**
 	 * Asks the user to type some input.
+	 * @param Terminal The Terminal object we'll use for cursor positioning and
+	 *        input.
+	 * @param Screen The Screen object we'll use when we need to push screen
+	 *        updates.
+	 * @param Prompt A string that will be printed before gathering input from
+	 *        the user.  Can be empty. but if it's not, then you should probably
+	 *        put a space character at the end of it.
+	 * @throws IOException
 	 */
 	public static String getline(Terminal terminal, Screen screen, String prompt) throws IOException {
 		String result = "";
 		boolean done = false;
 		TextGraphics textGraphics = terminal.newTextGraphics();
 		TerminalPosition cursorPosition = terminal.getCursorPosition();
-		TerminalSize terminalSize = terminal.getTerminalSize();
 
 		// Print the prompt and then move the cursor to be just beyond it.
 		textGraphics.putString(cursorPosition, prompt);
@@ -65,8 +71,11 @@ public class my {
 					done = true;
 					break;
 				case Escape:
-					// The user canceled the input.
-					return "";
+					// The user canceled the input.  Quit the loop prematurely
+					// so we can erase the cursor.
+					result = "";
+					done = true;
+					break;
 				case Backspace:
 					if (result.length() > 0) {
 						result = result.substring(0, result.length() - 1);
