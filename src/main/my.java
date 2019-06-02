@@ -12,13 +12,51 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 
 // Lanterna API documentation: https://mabe02.github.io/lanterna/apidocs/3.0/
+//
+// CSI escape sequences:
+//
 
 
 public class my {
 
-	//   public static enum KeyType {
-	//       Escape
-	//   }
+
+    // CSI-style escape sequences.
+    public class FG {
+	public static final String Black = "\u001b[0;30m";
+	public static final String Red = "\u001b[0;31m";
+	public static final String Green = "\u001b[0;32m";
+	public static final String Orange = "\u001b[0;33m";
+	public static final String Blue = "\u001b[0;34m";
+	public static final String Magenta = "\u001b[0;35m";
+	public static final String Cyan = "\u001b[0;36m";
+	public static final String White = "\u001b[0;37m";
+	public static final String Gray = "\u001b[1;30m";
+	public static final String BrightRed = "\u001b[1;31m";
+	public static final String BrightGreen = "\u001b[1;32m";
+	public static final String Yellow = "\u001b[1;33m";
+	public static final String BrightBlue = "\u001b[1;34m";
+	public static final String BrightMagenta = "\u001b[1;35m";
+	public static final String BrightCyan = "\u001b[1;36m";
+	public static final String BrightWhite = "\u001b[1;37m";
+    }
+    public class BG {
+	public static final String Black = "\u001b[0;40m";
+	public static final String Red = "\u001b[0;41m";
+	public static final String Green = "\u001b[0;42m";
+	public static final String Orange = "\u001b[0;43m";
+	public static final String Blue = "\u001b[0;44m";
+	public static final String Magenta = "\u001b[0;45m";
+	public static final String Cyan = "\u001b[0;46m";
+	public static final String White = "\u001b[0;47m";
+	public static final String Gray = "\u001b[1;40m";
+	public static final String BrightRed = "\u001b[1;41m";
+	public static final String BrightGreen = "\u001b[1;42m";
+	public static final String Yellow = "\u001b[1;43m";
+	public static final String BrightBlue = "\u001b[1;44m";
+	public static final String BrightMagenta = "\u001b[1;45m";
+	public static final String BrightCyan = "\u001b[1;46m";
+	public static final String BrightWhite = "\u001b[1;47m";
+    }
 
 	/**
 	 * Waits for the user to press any key.
@@ -112,12 +150,20 @@ public class my {
 			// Print welcome message
 			final TextGraphics textGraphics = terminal.newTextGraphics();
 			textGraphics.putString(10, 0, "Hi welcome to " + " VRION");
+			textGraphics.putCSIStyledString(0, 3, String.format("%s<%s<%s<%s Character Selection %s>%s>%s>",
+				FG.BrightCyan,
+				FG.BrightBlue,
+				FG.Blue,
+				FG.BrightWhite,
+				FG.Blue,
+				FG.BrightBlue,
+				FG.BrightCyan));
 			screen.refresh();
 
 			// Get the user's name
 			terminal.setCursorPosition(0, 5);
 			String name = getline(terminal, screen, "What is your name? ");
-			textGraphics.putString(0, 6, String.format("I hope you enjoy your stay, %s.", name));
+			textGraphics.putCSIStyledString(0, 6, String.format("I hope you enjoy your stay, %s%s.", FG.BrightRed, name));
 			screen.refresh();
 
 			// Quit on the next keystroke
@@ -139,6 +185,5 @@ public class my {
 				e.printStackTrace();
 			}
 		}
-
 	}
 }
