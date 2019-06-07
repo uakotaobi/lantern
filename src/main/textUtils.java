@@ -17,6 +17,6 @@ public class textUtils {
 		    this.terminal = terminal;
 		    this.screen = screen;
 		  }
-		  int move()
+		  // int move()
 		}
 }

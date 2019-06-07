@@ -29,13 +29,15 @@ import com.googlecode.lanterna.terminal.Terminal;
 		  // determines the length of an action
 		  int actionlength(int a) { 
 			int actions =0;
-			if  next.move()=
+			// if  next.move()=
 			actions+=1;
+			
+			return 0;
 		  }
 		  
 		  int turnNumber(Terminal terminal, Screen screen, String action){
 			  
-			  return();
+			  return 0;
 		  }
 		  
 	}
